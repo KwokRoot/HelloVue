@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HelloVue</title>
+    <script src="vue.js"></script>
+  </head>
+  <body>
+
+    <h3>计算属性</h3>
+
+    <div id="app-7">
+      <input v-model:value="inputValue" />
+      <h3>输入：{{inputValue}}</h3>
+      <h3>反转：{{reInputValue}}</h3>
+    </div>
+
+    <script>
+      var vm = new Vue({
+        el: "#app-7",
+        data: {
+          inputValue: "Hello",
+        },
+        computed: {
+          // 计算属性的 getter
+          reInputValue: function () {
+            // `this` 指向 vm 实例
+            return this.inputValue.split("").reverse().join("");
+          },
+        },
+      });
+    </script>
+    
+  </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HelloVue</title>
+    <script src="vue.js"></script>
+  </head>
+  <body>
+
+    <h3>TodoList(组件)</h3>
+
+    <div id="app">
+      <input v-model="inputValue" placeholder="todo" />
+      <button @click="addTask">提交</button>
+      <ul>
+        <todo-item
+          v-for="(item, index) in taskList"
+          :key="index"
+          :item="item"
+          :index="index"
+          @deltask="delTask"
+        ></todo-item>
+      </ul>
+    </div>
+
+    <script>
+      Vue.component("todo-item", {
+        props: ["item", "index"],
+        template: `<li>{{item}}&nbsp;<span class="del" @click="del">×</span></li>`,
+        methods: {
+          del: function () {
+            this.$emit("deltask", this.index);
+          },
+        },
+      });
+
+      var app = new Vue({
+        el: "#app",
+        data: {
+          inputValue: "",
+          taskList: [],
+        },
+        methods: {
+          addTask: function () {
+            this.taskList.push(this.inputValue);
+            this.inputValue = "";
+          },
+          delTask: function (index) {
+            this.taskList.splice(index, 1);
+          },
+        },
+      });
+    </script>
+    <style>
+      .del {
+        color: red;
+        cursor: pointer;
+      }
+    </style>
+  </body>
+</html>

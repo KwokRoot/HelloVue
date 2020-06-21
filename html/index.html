@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HelloVue</title>
+    <script src="vue.js"></script>
+  </head>
+  <body>
+    <h3>导航目录</h3>
+
+    <div id="app">
+      <ul>
+        <li v-for="item in list" :key="item.id">
+          <a :href="item.path" v-text="item.content"></a>
+        </li>
+      </ul>
+    </div>
+
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data: {
+          list: [
+            { id: "0", path: "index0.html", content: "模版" },
+            { id: "1", path: "index1.html", content: "声明式渲染" },
+            { id: "2", path: "index2.html", content: "属性绑定" },
+            { id: "3", path: "index3.html", content: "模双向绑定" },
+            { id: "4", path: "index4.html", content: "事件绑定" },
+            { id: "5", path: "index5.html", content: "循环" },
+            { id: "6", path: "index6.html", content: "组件" },
+            { id: "7", path: "index7.html", content: "计算属性" },
+            { id: "8", path: "index8.html", content: "侦听器(异步计算)" },
+            { id: "9", path: "index9.html", content: "Class 与 Style 绑定" },
+            { id: "todolist", path: "todolist.html", content: "TodoList" },
+            {
+              id: "todolist2",
+              path: "todolist2.html",
+              content: "TodoList(组件)",
+            },
+          ],
+        },
+      });
+    </script>
+    <style>
+      #app {
+        font-size: 20px;
+      }
+    </style>
+  </body>
+</html>

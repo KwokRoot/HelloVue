@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HelloVue</title>
+    <script src="vue.js"></script>
+  </head>
+  <body>
+    <h3>双向绑定</h3>
+    <div id="app-3">
+      <input v-model="message" />
+      <p>{{ message }}</p>
+    </div>
+
+    <script>
+      var app3 = new Vue({
+        el: "#app-3",
+        data: {
+          message: "Hello Vue!",
+        },
+      });
+    </script>
+  </body>
+</html>

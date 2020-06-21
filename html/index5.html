@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HelloVue</title>
+    <script src="vue.js"></script>
+  </head>
+  <body>
+    <h3>循环</h3>
+
+    <div id="app-5">
+      <ol>
+        <li v-for="(todo, index) in todos" :key="index">
+          {{ todo.text }}
+        </li>
+      </ol>
+    </div>
+
+    <script>
+      var app5 = new Vue({
+        el: "#app-5",
+        data: {
+          todos: [
+            { text: "学习 JavaScript" },
+            { text: "学习 Vue" },
+            { text: "Hello Vue" },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>

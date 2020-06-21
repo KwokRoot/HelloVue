@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HelloVue</title>
+    <script src="vue.js"></script>
+  </head>
+  <body>
+    <h3>Class 与 Style 绑定</h3>
+
+    <div id="app-9">
+      <span class="static" v-bind:class="{ class1: isclass1, 'class2': isclass2}"
+      v-bind:style="{fontSize: fontSize + 'px' }">{{msg}}</span>
+    </div>
+
+    <script>
+      var vm = new Vue({
+        el: "#app-9",
+        data: {
+          msg: "Hello Vue",
+          "isclass1": true,
+          isclass2: false,
+          fontSize: 30
+        },
+      });
+    </script>
+
+    <style>
+      .class1 {
+        background-color: blue;
+      }
+      .class2 {
+        color: red;
+      }
+    </style>
+  </body>
+</html>

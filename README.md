@@ -1,2 +1,2 @@
 # HelloVue
-HelloVue
+Some Vue Example.
